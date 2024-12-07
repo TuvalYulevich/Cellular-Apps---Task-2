@@ -42,9 +42,9 @@
         android:text="Save" />
 
     <Button
-        android:id="@+id/deleteButton"
+        android:id="@+id/goBackButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Delete"
+        android:text="Go back"
         android:layout_marginTop="16dp" />
 </LinearLayout>
