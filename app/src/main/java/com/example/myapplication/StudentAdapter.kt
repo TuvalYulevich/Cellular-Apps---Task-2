@@ -5,21 +5,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.data.Student
-import com.example.myapplication.data.StudentDatabase
 
 class StudentAdapter(
-    private val students: MutableList<Student>,
-    private val onEdit: (Student) -> Unit,
-    private val onCheckChanged: (Student, Boolean) -> Unit
+    private val students: List<Student>,
+    private val onStudentAction: (Student, String) -> Unit
 ) : RecyclerView.Adapter<StudentAdapter.StudentViewHolder>() {
 
-    inner class StudentViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+    class StudentViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val image: ImageView = view.findViewById(R.id.studentImage)
         val name: TextView = view.findViewById(R.id.studentName)
         val id: TextView = view.findViewById(R.id.studentId)
-        val checkbox: CheckBox = view.findViewById(R.id.studentCheckbox)
+        val checked: CheckBox = view.findViewById(R.id.studentChecked)
+        val viewButton: Button = view.findViewById(R.id.viewButton)
+        val editButton: Button = view.findViewById(R.id.editButton)
         val deleteButton: Button = view.findViewById(R.id.deleteButton)
     }
 
@@ -32,25 +34,17 @@ class StudentAdapter(
         val student = students[position]
         holder.name.text = student.name
         holder.id.text = student.id
-        holder.checkbox.isChecked = student.isChecked
+        holder.checked.isChecked = student.isChecked
+        holder.image.setImageResource(R.drawable.student_placeholder)
 
-        // Handle checkbox changes
-        holder.checkbox.setOnCheckedChangeListener { _, isChecked ->
-            onCheckChanged(student, isChecked)
+        holder.checked.setOnCheckedChangeListener { _, isChecked ->
+            student.isChecked = isChecked
         }
 
-        // Handle delete button click
-        holder.deleteButton.setOnClickListener {
-            students.removeAt(position)
-            notifyItemRemoved(position)
-            notifyItemRangeChanged(position, students.size)
-        }
-
-        // Edit button functionality (row click)
-        holder.itemView.setOnClickListener {
-            onEdit(student)
-        }
+        holder.viewButton.setOnClickListener { onStudentAction(student, "view") }
+        holder.editButton.setOnClickListener { onStudentAction(student, "edit") }
+        holder.deleteButton.setOnClickListener { onStudentAction(student, "delete") }
     }
 
-    override fun getItemCount(): Int = students.size
+    override fun getItemCount() = students.size
 }

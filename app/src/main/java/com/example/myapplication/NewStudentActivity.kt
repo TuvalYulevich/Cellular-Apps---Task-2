@@ -51,5 +51,7 @@ class NewStudentActivity : AppCompatActivity() {
                 idInput.error = "ID is required"
             }
         }
+
+
     }
 }
