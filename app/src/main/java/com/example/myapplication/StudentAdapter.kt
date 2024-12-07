@@ -19,7 +19,6 @@ class StudentAdapter(
         val image: ImageView = view.findViewById(R.id.studentImage)
         val name: TextView = view.findViewById(R.id.studentName)
         val id: TextView = view.findViewById(R.id.studentId)
-        val checked: CheckBox = view.findViewById(R.id.studentChecked)
         val viewButton: Button = view.findViewById(R.id.viewButton)
         val editButton: Button = view.findViewById(R.id.editButton)
         val deleteButton: Button = view.findViewById(R.id.deleteButton)
@@ -34,12 +33,7 @@ class StudentAdapter(
         val student = students[position]
         holder.name.text = student.name
         holder.id.text = student.id
-        holder.checked.isChecked = student.isChecked
         holder.image.setImageResource(R.drawable.student_placeholder)
-
-        holder.checked.setOnCheckedChangeListener { _, isChecked ->
-            student.isChecked = isChecked
-        }
 
         holder.viewButton.setOnClickListener { onStudentAction(student, "view") }
         holder.editButton.setOnClickListener { onStudentAction(student, "edit") }
