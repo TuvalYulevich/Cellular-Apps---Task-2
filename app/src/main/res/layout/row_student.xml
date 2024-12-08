@@ -4,8 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="8dp">
-
+    android:padding="8dp"
+    android:clickable="true"
+    android:focusable="true">
+<!-- The page design in the app for the page that shows all of the students data -->
     <!-- Student Image -->
     <ImageView
         android:id="@+id/studentImage"
@@ -42,7 +44,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:gravity="center_vertical">
 
         <Button

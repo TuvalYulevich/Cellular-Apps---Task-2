@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.data.StudentDatabase
-
+// Code for main activity and actions
 class MainActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
@@ -22,13 +22,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+// Initiating the recyclerView to hold the Students information
         recyclerView = findViewById(R.id.studentsRecyclerView)
         goBackButton = findViewById(R.id.goBackButton)
         addStudentButton = findViewById(R.id.addStudentButton)
         viewAllStudentsButton = findViewById(R.id.viewAllStudentsButton)
         buttonsLayout = findViewById(R.id.buttonsLayout)
-
+// Setting up the buttons for the student information view.
         adapter = StudentAdapter(StudentDatabase.students) { student, action ->
             when (action) {
                 "view" -> {

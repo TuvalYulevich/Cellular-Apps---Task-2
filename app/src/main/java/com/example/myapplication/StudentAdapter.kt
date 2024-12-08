@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.data.Student
-
+// Code for viewing all of the students information
 class StudentAdapter(
     private val students: List<Student>,
     private val onStudentAction: (Student, String) -> Unit
@@ -34,6 +34,11 @@ class StudentAdapter(
         holder.name.text = student.name
         holder.id.text = student.id
         holder.image.setImageResource(R.drawable.student_placeholder)
+
+        // Set click listener for the entire row
+        holder.itemView.setOnClickListener {
+            onStudentAction(student, "view") // Use "view" as the action for the click
+        }
 
         holder.viewButton.setOnClickListener { onStudentAction(student, "view") }
         holder.editButton.setOnClickListener { onStudentAction(student, "edit") }
