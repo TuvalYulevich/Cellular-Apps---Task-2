@@ -52,6 +52,6 @@
         android:id="@+id/goBackButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Go back"
+        android:text="Go Back to View All Students"
        />
 </LinearLayout>
