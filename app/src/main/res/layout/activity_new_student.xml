@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
-
+    <!-- The page design in the app for the page of insertion of a new student data -->
     <EditText
         android:id="@+id/nameInput"
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
         android:id="@+id/phoneInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Phone" />
+        android:hint="Mobile phone number" />
 
     <EditText
         android:id="@+id/addressInput"

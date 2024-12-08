@@ -7,7 +7,7 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.data.Student
 import com.example.myapplication.data.StudentDatabase
-
+// Code for adding a new student to the database
 class NewStudentActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +46,7 @@ class NewStudentActivity : AppCompatActivity() {
                 // Close the activity and return to MainActivity
                 finish()
             } else {
-                // Handle invalid inputs (e.g., show a toast message)
+                // Handle invalid inputs (must have a name and id)
                 nameInput.error = "Name is required"
                 idInput.error = "ID is required"
             }

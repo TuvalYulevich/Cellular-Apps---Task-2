@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
-
+    <!-- The page design in the app for the page of edit a student's data -->
     <EditText
         android:id="@+id/nameInput"
         android:layout_width="match_parent"
@@ -42,9 +42,16 @@
         android:text="Save" />
 
     <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        />
+
+    <Button
         android:id="@+id/goBackButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Go back"
-        android:layout_marginTop="16dp" />
+       />
 </LinearLayout>
