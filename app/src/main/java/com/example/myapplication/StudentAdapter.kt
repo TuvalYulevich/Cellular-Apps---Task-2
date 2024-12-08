@@ -22,6 +22,8 @@ class StudentAdapter(
         val viewButton: Button = view.findViewById(R.id.viewButton)
         val editButton: Button = view.findViewById(R.id.editButton)
         val deleteButton: Button = view.findViewById(R.id.deleteButton)
+        val checked: CheckBox = view.findViewById(R.id.studentChecked) // Add this line
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StudentViewHolder {
@@ -34,11 +36,18 @@ class StudentAdapter(
         holder.name.text = student.name
         holder.id.text = student.id
         holder.image.setImageResource(R.drawable.student_placeholder)
+        holder.checked.isChecked = student.isChecked
 
         // Set click listener for the entire row
         holder.itemView.setOnClickListener {
             onStudentAction(student, "view") // Use "view" as the action for the click
         }
+
+        // Handle CheckBox interaction
+        holder.checked.setOnCheckedChangeListener { _, isChecked ->
+            student.isChecked = isChecked // Update the student's data
+        }
+
 
         holder.viewButton.setOnClickListener { onStudentAction(student, "view") }
         holder.editButton.setOnClickListener { onStudentAction(student, "edit") }
