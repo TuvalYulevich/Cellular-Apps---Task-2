@@ -38,8 +38,14 @@
             android:layout_height="wrap_content"
             android:text="Student ID"
             android:textSize="14sp" />
-    </LinearLayout>
 
+    </LinearLayout>
+    <!-- Student CheckBox -->
+    <CheckBox
+        android:id="@+id/studentChecked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
     <!-- Action Buttons -->
     <LinearLayout
         android:layout_width="wrap_content"

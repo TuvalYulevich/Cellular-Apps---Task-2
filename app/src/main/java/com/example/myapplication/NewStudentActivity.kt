@@ -20,6 +20,7 @@ class NewStudentActivity : AppCompatActivity() {
         val addressInput = findViewById<EditText>(R.id.addressInput)
         val checkedInput = findViewById<CheckBox>(R.id.checkedInput)
         val saveButton = findViewById<Button>(R.id.saveButton)
+        val goBackButton = findViewById<Button>(R.id.goBackButton)
 
         saveButton.setOnClickListener {
             // Collect data from inputs
@@ -52,6 +53,8 @@ class NewStudentActivity : AppCompatActivity() {
             }
         }
 
-
+        goBackButton.setOnClickListener {
+            finish() // Return to the students list without saving
+        }
     }
 }
